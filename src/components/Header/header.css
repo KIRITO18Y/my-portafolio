@@ -1,0 +1,11 @@
+.header-container {
+    margin: 0px;
+    padding: 2px;
+    justify-items: flex-end;
+}
+
+.text {
+    color: red;
+    margin: 0px;
+    justify-items: flex-end;
+}

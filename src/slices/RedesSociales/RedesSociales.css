@@ -1,0 +1,17 @@
+.social {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 37px;
+    height: 37px;
+    color: white;
+}

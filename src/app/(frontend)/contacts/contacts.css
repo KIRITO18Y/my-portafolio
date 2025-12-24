@@ -1,0 +1,92 @@
+.contacts-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    color: #fff;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.contacts-header {
+    display: flex;
+    width: 65%;
+    padding: 20px;
+    align-items: center;
+}
+
+.contacts-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.contacts-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacts-inputs input,
+.contacts-inputs textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: #ffffff;
+    color: #333;
+}
+
+.contacts-inputs textarea {
+    min-height: 130px;
+    resize: none;
+}
+
+.contacts-inputs input::placeholder,
+.contacts-inputs textarea::placeholder {
+    color: #777;
+}
+
+
+.contacts-foto-box {
+    margin-top: 15px;
+    width: 360px;
+    height: 460px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.contacts-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.contacts-btn {
+    display: flex;
+}
+
+.contacts-button {
+    padding: 10px 25px;
+    font-size: 17px;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.484);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contacts-button:hover {
+    background: rgba(209, 217, 221);
+    color: blue;
+}

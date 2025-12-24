@@ -1,0 +1,97 @@
+.experience-container {
+    padding: 24px;
+
+}
+
+.experience-title {
+    font-size: 33px;
+    color: white;
+    font-weight: 700;
+    transform: translateY(14px);
+}
+
+
+.experience-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.305);
+    width: 420px;
+    height: auto;
+    transition: none;
+}
+
+.experience-img {
+    margin: 9px;
+    border-radius: 25px 25px 0px 0px;
+    background-color: black;
+    overflow: hidden;
+    height: 179px;
+
+}
+
+.experience-img img {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+}
+
+.experience-logos {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.experience-fagithub {
+    color: white;
+    padding: 6px;
+    width: 57px;
+    height: 56px;
+}
+
+.experience-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+}
+
+.title-net {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.title-development {
+    font-weight: 700;
+    color: rgb(97, 159, 166);
+}
+
+.experience-description {
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
+    color: rgb(222, 220, 220);
+
+}
+
+.experience-link {
+    padding: 10px;
+    gap: 10;
+
+}
+
+.experience-link a {
+    color: white;
+    margin: 10px;
+
+}
+
+.falink {
+    color: white;
+    width: 25px;
+    height: 20px;
+}

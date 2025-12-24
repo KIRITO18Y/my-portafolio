@@ -1,0 +1,38 @@
+.sevirces-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.services-titulo {
+    color: white;
+
+    text-align: center;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.305);
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    padding: 12px;
+    align-items: center;
+}
+
+.service-img {
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    width: 185px;
+    height: 190px;
+    border-radius: 20px;
+}
+
+.service-title {
+    color: blue;
+    font-size: 15px;
+    font-weight: 700;
+}

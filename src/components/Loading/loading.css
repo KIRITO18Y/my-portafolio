@@ -1,0 +1,17 @@
+/* Centra el icono y el texto de carga */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px;
+    gap: 10px;
+    color: #007bff;
+    /* Color de tu marca */
+}
+
+.fap-spinner {
+    font-size: 2rem;
+
+}

@@ -1,0 +1,79 @@
+.container-apps {
+    padding: 20px;
+    width: 100%;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.header-app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.card-apps {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.305);
+    width: 420px;
+    height: auto;
+    border-radius: 25px;
+    transition: none;
+}
+
+.card-img {
+    height: 176px;
+    margin: 9px;
+    background-color: black;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.logo-apps {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.title-apps {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.apps-fagithub {
+    color: white;
+    padding: 6px;
+    width: 47px;
+    height: 46px;
+
+}
+
+.title-ui {
+    display: flex;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    gap: 20px;
+}
+
+.title-offli {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(97, 159, 166);
+}
+
+.description-apps {
+    padding: 10px;
+    font-size: 21px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    color: rgb(222, 220, 220);
+}

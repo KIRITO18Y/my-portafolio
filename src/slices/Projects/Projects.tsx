@@ -30,8 +30,7 @@ export const Projects = () => {
                     <div key={project.id} className="projects-card">
                         <div className="card-img">
                             <img src={project.photo?.url}
-                                alt={project.photo?.alt || 'imagen del proyecto'}
-                                className="profile-foto" />
+                                alt={project.photo?.alt || 'imagen del proyecto'} />
                         </div>
                         <div className='projects-logos'>
                             <div>

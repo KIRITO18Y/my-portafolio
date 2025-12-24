@@ -17,7 +17,7 @@ export const Experience = () => {
                     <FontAwesomeIcon icon={faLink} className='experience-fagithub' />
                     <div className='experience-titles'>
                         <span className='title-net'>SIEMPRE.NET</span>
-                        <span className='title-development'>Lideres en Desarrollo de Aplicacioness</span>
+                        <span className='title-development'>Lideres en Desarrollo de Aplicaciones</span>
                     </div>
                 </div>
 

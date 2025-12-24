@@ -27,11 +27,10 @@
 }
 
 .card-img {
+    height: 179px;
     margin: 9px;
     border-radius: 25px 25px 0px 0px;
-
     overflow: hidden;
-    height: 179px;
 }
 
 .card-img img {

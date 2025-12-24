@@ -27,7 +27,7 @@ export const Projects = () => {
             <h3 className='projects-titulo'>Proyectos</h3>
             <div className='projects-header'>
                 {projects.map((project) => (
-                    <div className="projects-card">
+                    <div key={project.id} className="projects-card">
                         <div className="card-img">
                             <img src={project.photo?.url}
                                 alt={project.photo?.alt || 'imagen del proyecto'}

@@ -1,20 +1,24 @@
 .contacts-container {
+    width: 100%;
+    min-height: 100%;
+    padding: 2px;
+
+}
+
+.contacts-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 20px;
     margin: 10px;
     color: #fff;
     gap: 20px;
-    justify-content: center;
-
+    align-items: center;
+    justify-content: space-between;
 }
 
 .contacts-header {
-    display: flex;
     width: 65%;
-    padding: 20px;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .contacts-title {

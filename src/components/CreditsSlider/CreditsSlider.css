@@ -1,0 +1,39 @@
+.credits-slider {
+    display: flex;
+    width: 100%;
+    height: 280px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    display: flex;
+    width: 244px;
+    height: 240px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.305);
+    margin: -60px;
+}
+
+
+
+.credits-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 23px;
+    color: white;
+}
+
+.link {
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+.store-link {
+    color: #2d7dff;
+    font-weight: 600;
+    text-decoration: underline;
+}

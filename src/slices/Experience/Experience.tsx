@@ -1,41 +1,61 @@
-import { faLink } from '@fortawesome/free-solid-svg-icons'; // <-- Paquete correcto
+'use client';
 
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import './Experience.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from 'react';
 
 export const Experience = () => {
+    const [experiences, setExperiences] = useState<any[]>([])
+
+    useEffect(() => {
+        fetch('/api/Experience/1?depth=2')
+            .then(resp => resp.json())
+            .then(data => {
+                const formattedData = data.docs ? data.docs : [data];
+                setExperiences(formattedData);
+            })
+            .catch(err => console.error(err))
+    }, [])
+
+    console.log(experiences);
     return (
         <div className="experience-container">
             <h3 className="experience-title">Aliados y Experiencia</h3>
+            <div className='experoence-header'>
+                {experiences.map((experience) => (
 
-            <div className="experience-card">
-                <div className="experience-img">
+                    <div key={experience.id} className="experience-card">
+                        <div className="experience-img">
+                            <img src={experience.photo?.url}
+                                alt={experience.photo?.alt || 'imagen de la experiencia'} />
+                        </div>
 
-                </div>
+                        <div className='experience-logos'>
+                            <FontAwesomeIcon icon={faLink} className='experience-fagithub' />
+                            <div className='experience-titles'>
+                                <span className='title-net'>{experience.title}</span>
+                                <span className='title-development'>{experience.subtitle}</span>
+                            </div>
+                        </div>
 
-                <div className='experience-logos'>
-                    <FontAwesomeIcon icon={faLink} className='experience-fagithub' />
-                    <div className='experience-titles'>
-                        <span className='title-net'>SIEMPRE.NET</span>
-                        <span className='title-development'>Lideres en Desarrollo de Aplicaciones</span>
+                        <p className='experience-description'>
+                            {experience.description}
+                        </p>
+
+                        <div className='experience-link'>
+                            <div className='link-net'>
+                                <FontAwesomeIcon icon={faLink} className='falink' />
+                                <a href="">SIEMPRE.NET</a>
+                            </div>
+                        </div>
+                        <div className='experience-vd'>
+                            <video src="aaaaa">video</video>
+                        </div>
                     </div>
-                </div>
+                ))}
 
-                <p className='experience-description'>
-                    He crecido como profecinal junto a esto empersando.
-                    he sido parte de su equipo de trabajo desde 2014 hasta la actualidad,
-                    es una empresa con mucha experiencia en el sector Educativo. Tambien son proveedores de infrastruturas
-                </p>
 
-                <div className='experience-link'>
-                    <div className='link-net'>
-                        <FontAwesomeIcon icon={faLink} className='falink' />
-                        <a href="">SIEMPRE.NET</a>
-                    </div>
-                </div>
-                <div className='experience-vd'>
-                    <video src="aaaaa">video</video>
-                </div>
             </div>
         </div>
     )

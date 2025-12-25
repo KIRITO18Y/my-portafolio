@@ -10,6 +10,13 @@
     transform: translateY(14px);
 }
 
+.experience-header {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
 
 .experience-card {
     display: flex;
@@ -28,6 +35,12 @@
     overflow: hidden;
     height: 179px;
 
+}
+
+.experience-img img {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
 }
 
 .experience-img img {

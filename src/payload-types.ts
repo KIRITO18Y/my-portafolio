@@ -194,7 +194,7 @@ export interface Experience {
   id: number;
   title?: string | null;
   subtitle?: string | null;
-  Description?: string | null;
+  description?: string | null;
   photo?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -346,7 +346,7 @@ export interface ProjectsSelect<T extends boolean = true> {
 export interface ExperienceSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
-  Description?: T;
+  description?: T;
   photo?: T;
   updatedAt?: T;
   createdAt?: T;

@@ -1,22 +1,24 @@
-import { CollectionConfig } from "payload";
-export const Projects: CollectionConfig = {
-    slug: 'Projects',
+import type { CollectionConfig } from "payload";
+export const Apps: CollectionConfig =
+{
+    slug: 'Apps',
     access: {
         read: () => true,
     },
     fields: [
+
         {
             name: 'title',
             type: 'text',
         },
 
         {
-            name: 'subtible',
+            name: 'subtitle',
             type: 'text',
         },
 
         {
-            name: 'description',
+            name: 'descrption',
             type: 'textarea',
         },
 
@@ -29,13 +31,15 @@ export const Projects: CollectionConfig = {
         {
             name: 'tags',
             type: 'array',
-            label: 'Etiquetas',
+            label: 'Etquetas',
             fields: [
                 {
                     name: 'tag',
                     type: 'text',
+
                 }
-            ],
+            ]
         },
-    ],
-};
+
+    ]
+}

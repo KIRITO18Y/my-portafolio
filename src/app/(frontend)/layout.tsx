@@ -8,10 +8,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className='container-principal'>
           <Sidebar />
+
           <div className="layout-content">
-            <header className='header'>
-              <Header/>
-            </header>
+            <Header />
             <main className="layout-main">
               {children}
             </main>

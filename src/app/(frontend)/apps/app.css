@@ -1,6 +1,5 @@
 .container-apps {
-    padding: 20px;
-    width: 100%;
+    padding: 30px;
 }
 
 h1 {
@@ -11,10 +10,11 @@ h1 {
     font-weight: 700;
 }
 
-.header-app {
+.header-apps {
+    padding: 30px;
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 
@@ -31,7 +31,7 @@ h1 {
 .card-img {
     height: 176px;
     margin: 9px;
-    background-color: black;
+    overflow: hidden;
     border-radius: 25px 25px 0px 0px;
 }
 
@@ -71,9 +71,30 @@ h1 {
 }
 
 .description-apps {
+    width: 420px;
+    height: 210px;
     padding: 10px;
     font-size: 21px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     color: rgb(222, 220, 220);
+}
+
+.apps-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin: 15px;
+    justify-content: center;
+}
+
+.apps-item {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.684);
+    border: 1.5px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: blue;
+    transition: 0.3s;
 }

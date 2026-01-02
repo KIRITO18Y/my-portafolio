@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 
 export const Projects = () => {
     const [projects, setProjects] = useState<any[]>([])
-    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch('/api/Projects/?depth=2')
@@ -17,7 +16,6 @@ export const Projects = () => {
             })
             .catch(err => {
                 console.error(err)
-                setLoading(false)
             })
 
     }, [])

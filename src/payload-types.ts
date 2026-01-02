@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     Projects: Project;
     Experience: Experience;
+    Apps: App;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     Projects: ProjectsSelect<false> | ProjectsSelect<true>;
     Experience: ExperienceSelect<false> | ExperienceSelect<true>;
+    Apps: AppsSelect<false> | AppsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -201,6 +203,25 @@ export interface Experience {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Apps".
+ */
+export interface App {
+  id: number;
+  title?: string | null;
+  subtitle?: string | null;
+  descrption?: string | null;
+  photo?: (number | null) | Media;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -238,6 +259,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Experience';
         value: number | Experience;
+      } | null)
+    | ({
+        relationTo: 'Apps';
+        value: number | App;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -348,6 +373,24 @@ export interface ExperienceSelect<T extends boolean = true> {
   subtitle?: T;
   description?: T;
   photo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Apps_select".
+ */
+export interface AppsSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  descrption?: T;
+  photo?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

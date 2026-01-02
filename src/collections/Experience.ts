@@ -5,7 +5,11 @@ export const Experience : CollectionConfig =
         read: () => true, 
     }, 
     
-    fields: [ { name: 'title', type: 'text', },
+    fields: [
+        {  name: 'title', 
+            type: 'text',
+        },
+
          { name: 'subtitle', 
             type: 'textarea',
          }, 

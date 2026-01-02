@@ -11,6 +11,7 @@ import { Media } from './collections/Media'
 import { Profile } from './collections/globals/Profile'
 import { Projects } from './collections/Projects'
 import { Experience } from './collections/Experience'
+import { Apps } from './collections/apps'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,10 +24,11 @@ export default buildConfig({
     },
   },
   collections: [
-    Users, 
-    Media , 
+    Users,
+    Media,
     Projects,
     Experience,
+    Apps,
   ],
   globals: [Profile],
   editor: lexicalEditor(),

@@ -1,11 +1,78 @@
-.header-container {
-    margin: 0px;
-    padding: 2px;
-    justify-items: flex-end;
+.header {
+    display: flex;
+    height: 60px;
+    background: linear-gradient(145deg, #3c505b, #4e3e4b, #40373e);
+    justify-content: flex-end;
+
 }
 
-.text {
-    color: red;
-    margin: 0px;
-    justify-items: flex-end;
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding-right: 50px;
+}
+
+
+.haader-fanh {
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-figlobe {
+    width: 40px;
+    height: 40px;
+    justify-content: flex-end;
+    color: white;
+
+}
+
+.header-icon {
+    display: flex;
+    background-color: rgb(253, 253, 253);
+    border-radius: 11px;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icon-fasun {
+    width: 45px;
+    height: 26px;
+    color: white;
+}
+
+
+.theme-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.theme-btn svg {
+    font-size: 20px;
+    color: #000000;
+}
+
+.active-sun svg,
+.active-moon svg {
+    color: #fff;
+}
+
+.active-sun {
+
+    background-color: #4da3ff;
+}
+
+
+.active-moon {
+    background-color: #4da3ff;
 }

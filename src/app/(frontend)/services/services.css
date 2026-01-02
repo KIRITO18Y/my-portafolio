@@ -36,3 +36,26 @@
     font-size: 15px;
     font-weight: 700;
 }
+
+.btn-contacto-container {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.btn-contacto {
+    padding: 8px 40px;
+    font-size: 19px;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.484);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-contacto:hover {
+    background: rgba(209, 217, 221);
+    color: blue;
+}

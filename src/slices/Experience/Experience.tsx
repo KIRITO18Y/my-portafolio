@@ -9,11 +9,10 @@ export const Experience = () => {
     const [experiences, setExperiences] = useState<any[]>([])
 
     useEffect(() => {
-        fetch('/api/Experience/1?depth=2')
+        fetch('/api/Experience/?depth=2')
             .then(resp => resp.json())
             .then(data => {
-                const formattedData = data.docs ? data.docs : [data];
-                setExperiences(formattedData);
+                setExperiences(data.docs ?? []);
             })
             .catch(err => console.error(err))
     }, [])

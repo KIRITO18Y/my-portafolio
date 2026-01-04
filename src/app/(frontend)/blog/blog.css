@@ -175,12 +175,16 @@
 }
 
 .blog-img {
-    width: 159px;
+    width: 153px;
     height: 140px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
     font-size: 12px;
+}
+
+.blog-icon {
+    width: 120px;
+    height: 120px;
 }

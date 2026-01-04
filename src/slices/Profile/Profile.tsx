@@ -1,9 +1,8 @@
 'use client'
-import { useEffect, useState } from 'react'
 import './profile.css'
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { FaTelegramPlane } from 'react-icons/fa'
 
 export const Profile = () => {
     const [profile, setProfile] = useState<any>({})
@@ -47,7 +46,7 @@ export const Profile = () => {
                 <div className="profile-buttons">
                     <button className="btn-contactar" onClick={() => router.push('/contacts')}>Contactar Ahora</button>
                     <span className="btn-recomendar">
-                        <FontAwesomeIcon icon={faPaperPlane} className='fap-icon' />
+                        <FaTelegramPlane className='fatelegram-icon' />
                         <span>Recomendar</span>
                     </span>
                 </div>

@@ -72,7 +72,7 @@ h1 {
 
 .description-apps {
     width: 420px;
-    height: 210px;
+    height: 205px;
     padding: 10px;
     font-size: 21px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -84,7 +84,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
-    margin: 15px;
+    margin: 16px;
     justify-content: center;
 }
 

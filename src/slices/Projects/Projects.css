@@ -86,8 +86,8 @@
 .projects-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px;
+    gap: 13px;
+    margin: 16px;
     justify-content: center;
 }
 

@@ -1,7 +1,7 @@
 'use client'
 import '../blog/blog.css'
 import { CreditsSlider, } from '@/components/CreditsSlider/CreditsSlider'
-import { FaComment, FaHandsHelping, FaBookmark } from 'react-icons/fa'
+import { FaComment, FaHandsHelping, FaBookmark, FaTree } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
 const BlogPage = () => {
@@ -70,7 +70,7 @@ const BlogPage = () => {
                                     <p className="blog-author">Autor: {blog.author}</p>
                                 </div>
                                 <div className="blog-img">
-                                    {/* imagen */}
+                                    <FaTree className='blog-icon' />
                                 </div>
                             </div>
 

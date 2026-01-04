@@ -1,7 +1,28 @@
-import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
+'use client'
 import '../blog/blog.css'
+import { CreditsSlider, } from '@/components/CreditsSlider/CreditsSlider'
+import { FaComment, FaHandsHelping, FaBookmark } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 
 const BlogPage = () => {
+    const [blogs, setBlogs] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetch('/api/blog/?depth=2')
+            .then(resp => resp.json())
+            .then(data => {
+                setBlogs(data.docs ?? []);
+            })
+    }, []);
+    const formatDate = (date: string) => {
+        const d = new Date(date)
+        const month = d.toLocaleDateString('es-CO', { month: 'long' })
+        const day = d.getDate()
+
+        return `${day} ${month.charAt(0).toUpperCase() + month.slice(1)}`
+    }
+
+
     return (
         <div className="blog-container">
             <div className="blog-header">
@@ -19,38 +40,45 @@ const BlogPage = () => {
             </div>
 
             <div className="blog-card">
-                <div className="card-header">
-                    <div className="blog-card-content">
+                {blogs.map((blog) => (
+                    <div key={blog.id} className="card-header">
+                        <div className="blog-card-content">
+                            <div className="card-contentainer">
+                                <h2 className="blog-title">{blog.title}</h2>
 
-                        <div className="card-contentainer">
-                            <h2 className="blog-title">Primeros pasos en Payload CMS</h2>
+                                <p className="blog-description">
+                                    {blog.description}
+                                </p>
+                                <div className="blog-meta">
+                                    <span className="blog-date">{formatDate(blog.publishedAt)}</span>
+                                    <span>Views 256</span>
+                                    <span className='blog-comments'>
+                                        <FaComment className='blog-facoment' />
+                                        256
+                                    </span>
+                                    <span><FaBookmark className='blog-fabookmark' />
+                                        10
+                                    </span>
+                                    <span>
+                                        <FaHandsHelping className='blog-fahands' />
+                                        10
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="blog-right">
+                                <div className="blog-author-container">
+                                    <p className="blog-author">Autor: {blog.author}</p>
+                                </div>
+                                <div className="blog-img">
+                                    {/* imagen */}
+                                </div>
+                            </div>
 
-                            <p className="blog-description">
-                                Si ya has escuchado hablar de Payload CMS y te llama la atención
-                                te enseño los pasos básicos para iniciar a usarlo
-                            </p>
-
-                            <div className="blog-meta">
-                                <span className="blog-date">Oct. 29</span>
-                                <span>Views 256</span>
-                                <span>💬 256</span>
-                                <span>🔖 10</span>
-                                <span>👍 10</span>
-                            </div>
-                        </div>
-                        <div className="blog-right">
-                            <div className="blog-author-container">
-                                <p className="blog-author">Autor: De andre</p>
-                            </div>
-                            <div className="blog-img">
-                                {/* imagen */}
-                            </div>
                         </div>
 
                     </div>
+                ))}
 
-
-                </div>
             </div>
 
 

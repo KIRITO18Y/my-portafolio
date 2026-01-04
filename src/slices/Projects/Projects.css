@@ -78,23 +78,23 @@
 .projects-descripcion {
     padding: 10px;
     font-size: 21px;
+    height: auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 0;
     color: rgb(222, 220, 220);
 }
 
 .projects-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 13px;
-    margin: 15px;
+    gap: 10px;
+    margin: 20px;
     justify-content: center;
 }
 
 .projects-item {
     padding: 6px 14px;
     background: rgba(255, 255, 255, 0.684);
-    border: 1.5px solid rgb(255, 255, 255);
+    border: 2.5px solid rgb(255, 255, 255);
     border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;

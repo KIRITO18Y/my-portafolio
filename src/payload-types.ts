@@ -72,6 +72,7 @@ export interface Config {
     Projects: Project;
     Experience: Experience;
     Apps: App;
+    blog: Blog;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     Projects: ProjectsSelect<false> | ProjectsSelect<true>;
     Experience: ExperienceSelect<false> | ExperienceSelect<true>;
     Apps: AppsSelect<false> | AppsSelect<true>;
+    blog: BlogSelect<false> | BlogSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -222,6 +224,19 @@ export interface App {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog".
+ */
+export interface Blog {
+  id: number;
+  title?: string | null;
+  description?: string | null;
+  publishedAt?: string | null;
+  author?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -263,6 +278,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Apps';
         value: number | App;
+      } | null)
+    | ({
+        relationTo: 'blog';
+        value: number | Blog;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -391,6 +410,18 @@ export interface AppsSelect<T extends boolean = true> {
         tag?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog_select".
+ */
+export interface BlogSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  publishedAt?: T;
+  author?: T;
   updatedAt?: T;
   createdAt?: T;
 }

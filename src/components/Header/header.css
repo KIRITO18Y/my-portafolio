@@ -15,10 +15,11 @@
 }
 
 
-.haader-fanh {
-    color: white;
+.icon-fanh {
     width: 40px;
     height: 40px;
+    color: white;
+    cursor: pointer;
 }
 
 .icon-figlobe {
@@ -26,7 +27,7 @@
     height: 40px;
     justify-content: flex-end;
     color: white;
-
+    cursor: pointer;
 }
 
 .header-icon {

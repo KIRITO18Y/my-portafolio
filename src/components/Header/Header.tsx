@@ -1,6 +1,5 @@
 'use client';
-import { FaGlobeAmericas, FaHandsHelping, FaSun } from "react-icons/fa";
-import { MdDarkMode } from "react-icons/md";
+import { FaGlobeAmericas, FaHandsHelping, FaSun, FaMoon } from "react-icons/fa";
 import './header.css'
 import { useState } from "react";
 
@@ -10,7 +9,7 @@ export const Header = () => {
     return (
         <div className="header">
             <div className='header-container'>
-                <FaHandsHelping className="haader-fanh" />
+                <FaHandsHelping className="icon-fanh" />
                 <div>
                     <FaGlobeAmericas className='icon-figlobe' />
                 </div>
@@ -21,7 +20,7 @@ export const Header = () => {
                     </div>
                     <div className={`theme-btn ${theme === "dark" ? "active-moon" : ""}`}
                         onClick={() => setTheme("dark")}>
-                        <MdDarkMode className="icon-fasun" />
+                        <FaMoon className="icon-fasun" />
                     </div>
                 </div>
             </div>

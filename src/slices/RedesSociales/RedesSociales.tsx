@@ -9,8 +9,6 @@ export const RedesSociales = () => {
                 <a href="#">
                     <FontAwesomeIcon icon={faGithub} className="icon" />
                 </a>
-
-
                 <a href="#">
                     <FontAwesomeIcon icon={faYoutube} className="icon" />
                 </a>
@@ -18,7 +16,6 @@ export const RedesSociales = () => {
                 <a href="#">
                     <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
                 </a>
-
             </div>
         </div>
     );

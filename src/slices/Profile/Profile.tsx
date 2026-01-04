@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react'
 import './profile.css'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/navigation'
 
 export const Profile = () => {
     const [profile, setProfile] = useState<any>({})
+    const router = useRouter();
 
     useEffect(() => {
         fetch('/api/globals/profiles')
@@ -43,7 +45,7 @@ export const Profile = () => {
                 </div>
 
                 <div className="profile-buttons">
-                    <button className="btn-contactar">Contactar Ahora</button>
+                    <button className="btn-contactar" onClick={() => router.push('/contacts')}>Contactar Ahora</button>
                     <span className="btn-recomendar">
                         <FontAwesomeIcon icon={faPaperPlane} className='fap-icon' />
                         <span>Recomendar</span>

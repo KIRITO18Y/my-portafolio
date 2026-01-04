@@ -1,7 +1,13 @@
-import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
+'use client'
+
+import { useRouter } from 'next/navigation'
 import '../services/services.css'
+import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
+
 
 const ServicesPage = () => {
+    const router = useRouter();
+
     return (
         <div className="services-container">
 
@@ -17,7 +23,7 @@ const ServicesPage = () => {
                 </div>
             </div>
             <div className='btn-contacto-container'>
-                <button className='btn-contacto'>Contactar ahora </button>
+                <button className='btn-contacto' onClick={() => router.push('/contacts')}>Contactar ahora </button>
             </div>
             < CreditsSlider />
         </div>

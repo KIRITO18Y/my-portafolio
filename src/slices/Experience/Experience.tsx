@@ -21,9 +21,9 @@ export const Experience = () => {
     return (
         <div className="experience-container">
             <h3 className="experience-title">Aliados y Experiencia</h3>
-            <div className='experoence-header'>
-                {experiences.map((experience) => (
 
+            <div className='experience-header'>
+                {experiences.map((experience) => (
                     <div key={experience.id} className="experience-card">
                         <div className="experience-img">
                             <img src={experience.photo?.url}
@@ -53,8 +53,6 @@ export const Experience = () => {
                         </div>
                     </div>
                 ))}
-
-
             </div>
         </div>
     )

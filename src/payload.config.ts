@@ -9,10 +9,12 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Profile } from './collections/globals/Profile'
+import { Contacts } from './collections/globals/contacts'
 import { Projects } from './collections/Projects'
 import { Experience } from './collections/Experience'
 import { Apps } from './collections/apps'
 import { Blog } from './collections/Blog'
+import { Services } from './collections/Services'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,9 +32,10 @@ export default buildConfig({
     Projects,
     Experience,
     Apps,
+    Services,
     Blog,
   ],
-  globals: [Profile],
+  globals: [Profile, Contacts],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

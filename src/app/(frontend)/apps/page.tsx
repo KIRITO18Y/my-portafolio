@@ -1,6 +1,6 @@
 'use client'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './app.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'

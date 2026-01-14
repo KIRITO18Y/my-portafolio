@@ -63,6 +63,6 @@
 }
 
 .menu-btn.active {
-  background: #3201c7;
-  box-shadow: 0 0 10px #7a00ff88;
+  background: rgba(209, 217, 221);
+  color: rgb(47, 0, 255);
 }

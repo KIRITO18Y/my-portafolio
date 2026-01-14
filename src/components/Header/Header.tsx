@@ -1,6 +1,6 @@
 'use client';
-import { FaGlobeAmericas, FaHandsHelping, FaSun, FaMoon } from "react-icons/fa";
 import './header.css'
+import { FaGlobeAmericas, FaHandsHelping, FaSun, FaMoon } from "react-icons/fa";
 import { useState } from "react";
 
 export const Header = () => {

@@ -56,6 +56,9 @@
 
 }
 
+
+
+
 .blog-buttom span {
     color: aliceblue;
     font-size: 27px;
@@ -63,7 +66,7 @@
     gap: 12px;
 }
 
-.btn-blog {
+.blog-btn {
     padding: 4px 50px;
     font-size: 19px;
     color: white;
@@ -73,6 +76,11 @@
     cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
 
+}
+
+.blog-btn:hover {
+    background: rgba(209, 217, 221);
+    color: blue;
 }
 
 .blog-card {
@@ -125,15 +133,14 @@
     color: #ffffff;
 }
 
-.blog-meta span {
+
+.blog-buttom {
     display: flex;
     font-weight: 700;
     gap: 6px;
     color: #fff;
     font-size: 17px;
 }
-
-
 
 
 .blog-facoment {

@@ -34,7 +34,7 @@ const BlogPage = () => {
                         className="blog-input" />
                     <div className="blog-buttom">
                         <span className='blog-spam'>Newsletter</span>
-                        <button className="btn-blog">Suscribirme</button>
+                        <button className="blog-btn">Suscribirme</button>
                     </div>
                 </div>
             </div>
@@ -73,18 +73,12 @@ const BlogPage = () => {
                                     <FaTree className='blog-icon' />
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 ))}
-
             </div>
-
-
             <CreditsSlider />
         </div>
     )
 }
-
 export default BlogPage

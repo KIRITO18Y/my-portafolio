@@ -1,8 +1,13 @@
+'use client'
 import Link from 'next/link'
 import '../Sidebar/Sidebar.css'
 import { RedesSociales } from '@/slices/RedesSociales/RedesSociales'
+import { usePathname } from 'next/navigation'
 
 export const Sidebar = () => {
+    const pathname = usePathname()
+
+
     return (
         <aside className="sidebar">
             <div className='logo'>
@@ -12,11 +17,40 @@ export const Sidebar = () => {
 
             <div>
                 <nav className="menu">
-                    <Link href="/" className="menu-btn">Perfil</Link>
-                    <Link href="/services" className="menu-btn">Servicios</Link>
-                    <Link href="/apps" className="menu-btn">Apps</Link>
-                    <Link href="/blog" className="menu-btn">Blog</Link>
-                    <Link href="/contacts" className="menu-btn">Contacto</Link>
+                    <Link
+                        href="/"
+                        className={`menu-btn ${pathname === '/' ? 'active' : ''}`}
+                    >
+                        Perfil
+                    </Link>
+
+                    <Link
+                        href="/services"
+                        className={`menu-btn ${pathname === '/services' ? 'active' : ''}`}
+                    >
+                        Servicios
+                    </Link>
+
+                    <Link
+                        href="/apps"
+                        className={`menu-btn ${pathname === '/apps' ? 'active' : ''}`}
+                    >
+                        Apps
+                    </Link>
+
+                    <Link
+                        href="/blog"
+                        className={`menu-btn ${pathname === '/blog' ? 'active' : ''}`}
+                    >
+                        Blog
+                    </Link>
+
+                    <Link
+                        href="/contacts"
+                        className={`menu-btn ${pathname === '/contacts' ? 'active' : ''}`}
+                    >
+                        Contacto
+                    </Link>
                 </nav>
             </div>
             <div>

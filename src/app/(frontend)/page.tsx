@@ -4,7 +4,6 @@ import { Projects } from '@/slices/Projects/Projects'
 import { Profile } from '@/slices/Profile/Profile'
 import { Experience } from '@/slices/Experience/Experience'
 import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
-
 export default async function HomePage() {
 
   return (
@@ -12,11 +11,9 @@ export default async function HomePage() {
       <div className="content">
         <div className='profile-seccion fade-up'>
           <Profile />
-
           <div>
             <Projects />
           </div>
-
           <div>
             <Experience />
           </div>

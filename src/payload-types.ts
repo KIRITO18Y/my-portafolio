@@ -72,6 +72,7 @@ export interface Config {
     Projects: Project;
     Experience: Experience;
     Apps: App;
+    services: Service;
     blog: Blog;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -85,6 +86,7 @@ export interface Config {
     Projects: ProjectsSelect<false> | ProjectsSelect<true>;
     Experience: ExperienceSelect<false> | ExperienceSelect<true>;
     Apps: AppsSelect<false> | AppsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
     blog: BlogSelect<false> | BlogSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -97,9 +99,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     profiles: Profile;
+    contacts: Contact;
   };
   globalsSelect: {
     profiles: ProfilesSelect<false> | ProfilesSelect<true>;
+    contacts: ContactsSelect<false> | ContactsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -224,6 +228,17 @@ export interface App {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  title?: string | null;
+  photo?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog".
  */
 export interface Blog {
@@ -278,6 +293,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Apps';
         value: number | App;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
       } | null)
     | ({
         relationTo: 'blog';
@@ -415,6 +434,16 @@ export interface AppsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  photo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog_select".
  */
 export interface BlogSelect<T extends boolean = true> {
@@ -488,6 +517,16 @@ export interface Profile {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts".
+ */
+export interface Contact {
+  id: number;
+  photo?: (number | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profiles_select".
  */
 export interface ProfilesSelect<T extends boolean = true> {
@@ -503,6 +542,16 @@ export interface ProfilesSelect<T extends boolean = true> {
         tag?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts_select".
+ */
+export interface ContactsSelect<T extends boolean = true> {
+  photo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -17,14 +17,13 @@
 
 .contacts-header {
     width: 65%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .contacts-title {
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 10px;
+    color: white;
+    margin-top: 30px;
 }
 
 

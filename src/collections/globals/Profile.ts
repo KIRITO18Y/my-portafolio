@@ -10,23 +10,28 @@ export const Profile: GlobalConfig = {
       name: 'title',
       type: 'text',
     },
+
     {
       name: 'subtitle',
       type: 'text',
     },
+
     {
       name: 'firstName',
       type: 'text',
     },
+
     {
       name: 'lastName',
       type: 'text',
     },
+
     {
       name: 'description',
       type: 'textarea',
       label: 'Description',
     },
+
     {
       name: 'photo',
       type: 'upload',

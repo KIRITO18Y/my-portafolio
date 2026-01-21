@@ -18,7 +18,7 @@ const Apps = () => {
 
     return (
         <div className="container-apps">
-            <h1> Apps</h1>
+            <h1 className='title-app'> Apps</h1>
             <div className="header-apps">
                 {apps.map((app) => (
                     <div key={app.id} className='card-apps'>

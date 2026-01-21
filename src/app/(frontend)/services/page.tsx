@@ -16,7 +16,6 @@ const ServicesPage = () => {
             })
     }, [])
 
-
     return (
         <div className="services-container">
             <h1 className="services-titulo"> servicios </h1>

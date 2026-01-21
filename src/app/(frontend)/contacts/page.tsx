@@ -8,11 +8,49 @@ import { useEffect, useState } from 'react'
 const ContactsPage = () => {
     const [contacts, setContacts] = useState<any>({});
 
-    useEffect(() => {
-        fetch('/api/contacts/?depth=2')
-            .then(resp => resp.json())
-            .then(data => setContacts(data))
-    }, [])
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        message: '',
+    })
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target
+        setFormData(prev => ({ ...prev, [name]: value }))
+    }
+
+    const handleSubmit = async () => {
+
+        try {
+            const res = await fetch('/api/contacts/?depth=2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (!res.ok) throw new Error()
+
+            alert('Mensaje enviado correctamente ✅')
+
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                city: '',
+                message: '',
+            })
+        } catch {
+            alert('Error al enviar el mensaje ❌')
+        }
+    }
+
 
     return (
         <div className="contacts-container">
@@ -20,13 +58,46 @@ const ContactsPage = () => {
                 <div className="contacts-header">
                     <h1 className="contacts-title">Contacto</h1>
                     <div className="contacts-inputs">
-                        <input type="text" placeholder="Nombre Completo" />
-                        <input type="email" placeholder="Email" />
-                        <input type="text" placeholder="Teléfono" />
-                        <input type="text" placeholder="Ciudad" />
-                        <textarea placeholder="Mensaje"></textarea>
+                        <input
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Nombre Completo"
+                        />
+
+                        <input
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                        />
+
+                        <input
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Teléfono"
+                        />
+
+                        <input
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            placeholder="Ciudad"
+                        />
+
+
+                        <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Mensaje"
+                        />
+
                         <div className="contacts-btn">
-                            <button className="contacts-button">Enviar Mensaje</button>
+                            <button onClick={handleSubmit} className='contacts-button' >
+                                Enviar Mensaje
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -39,7 +110,7 @@ const ContactsPage = () => {
                     />
                 </div>
             </div>
-            < CreditsSlider />
+            <CreditsSlider />
         </div>
     )
 }

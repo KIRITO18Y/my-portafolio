@@ -71,9 +71,10 @@ export interface Config {
     media: Media;
     Projects: Project;
     Experience: Experience;
-    Apps: App;
     services: Service;
+    Apps: App;
     blog: Blog;
+    contacts: Contact;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -85,9 +86,10 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     Projects: ProjectsSelect<false> | ProjectsSelect<true>;
     Experience: ExperienceSelect<false> | ExperienceSelect<true>;
-    Apps: AppsSelect<false> | AppsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
+    Apps: AppsSelect<false> | AppsSelect<true>;
     blog: BlogSelect<false> | BlogSelect<true>;
+    contacts: ContactsSelect<false> | ContactsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -99,11 +101,9 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     profiles: Profile;
-    contacts: Contact;
   };
   globalsSelect: {
     profiles: ProfilesSelect<false> | ProfilesSelect<true>;
-    contacts: ContactsSelect<false> | ContactsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -209,6 +209,17 @@ export interface Experience {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  title?: string | null;
+  photo?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Apps".
  */
 export interface App {
@@ -228,17 +239,6 @@ export interface App {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "services".
- */
-export interface Service {
-  id: number;
-  title?: string | null;
-  photo?: (number | null) | Media;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog".
  */
 export interface Blog {
@@ -247,6 +247,20 @@ export interface Blog {
   description?: string | null;
   publishedAt?: string | null;
   author?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts".
+ */
+export interface Contact {
+  id: number;
+  name: string;
+  email: string;
+  phone?: string | null;
+  city?: string | null;
+  message: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -291,16 +305,20 @@ export interface PayloadLockedDocument {
         value: number | Experience;
       } | null)
     | ({
-        relationTo: 'Apps';
-        value: number | App;
-      } | null)
-    | ({
         relationTo: 'services';
         value: number | Service;
       } | null)
     | ({
+        relationTo: 'Apps';
+        value: number | App;
+      } | null)
+    | ({
         relationTo: 'blog';
         value: number | Blog;
+      } | null)
+    | ({
+        relationTo: 'contacts';
+        value: number | Contact;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -416,6 +434,16 @@ export interface ExperienceSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  photo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Apps_select".
  */
 export interface AppsSelect<T extends boolean = true> {
@@ -434,16 +462,6 @@ export interface AppsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "services_select".
- */
-export interface ServicesSelect<T extends boolean = true> {
-  title?: T;
-  photo?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog_select".
  */
 export interface BlogSelect<T extends boolean = true> {
@@ -451,6 +469,19 @@ export interface BlogSelect<T extends boolean = true> {
   description?: T;
   publishedAt?: T;
   author?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts_select".
+ */
+export interface ContactsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  city?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -517,16 +548,6 @@ export interface Profile {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contacts".
- */
-export interface Contact {
-  id: number;
-  photo?: (number | null) | Media;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profiles_select".
  */
 export interface ProfilesSelect<T extends boolean = true> {
@@ -542,16 +563,6 @@ export interface ProfilesSelect<T extends boolean = true> {
         tag?: T;
         id?: T;
       };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contacts_select".
- */
-export interface ContactsSelect<T extends boolean = true> {
-  photo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -9,12 +9,13 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Profile } from './collections/globals/Profile'
-import { Contacts } from './collections/globals/contacts'
 import { Projects } from './collections/Projects'
 import { Experience } from './collections/Experience'
 import { Apps } from './collections/apps'
 import { Blog } from './collections/Blog'
 import { Services } from './collections/Services'
+import { Contacts } from './collections/Contacts'
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -31,11 +32,12 @@ export default buildConfig({
     Media,
     Projects,
     Experience,
-    Apps,
     Services,
+    Apps,
     Blog,
+    Contacts,
   ],
-  globals: [Profile, Contacts],
+  globals: [Profile],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

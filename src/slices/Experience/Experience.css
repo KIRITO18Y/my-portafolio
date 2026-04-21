@@ -1,6 +1,5 @@
 .experience-container {
     padding: 24px;
-
 }
 
 .experience-title {
@@ -14,10 +13,7 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-
 }
-
-
 
 .experience-card {
     display: flex;
@@ -82,29 +78,47 @@
 }
 
 .experience-description {
-    padding: 20px;
-    font-size: 16px;
-    font-weight: 700;
+    padding: 15px 10px 2px 10px;
+    font-size: 21px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 0px;
-    color: rgb(222, 220, 220);
-
+    color: rgb(237, 235, 235);
+    line-height: 1.2;
+    margin: 0;
 }
-
-.experience-link {
-    padding: 10px;
-    gap: 10;
-
-}
-
-.experience-link a {
-    color: white;
-    margin: 10px;
-
-}
-
 .falink {
     color: white;
     width: 25px;
-    height: 20px;
+    height: 25px;
+}
+.experience-infovid{
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.link-net {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+}
+
+.link-net a {
+    color: white;
+    margin: 1px;
+    font-weight: 700;
+}
+
+.experience-vd{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.experience-video{
+    background-color: aqua;
+    border-radius: 20px;
+    width: 340px;
+    min-height: 200px;
 }

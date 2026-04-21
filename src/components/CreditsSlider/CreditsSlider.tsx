@@ -14,10 +14,7 @@ export const CreditsSlider = () => {
                     <a href="#" className="store-link">Triafana STORE</a>
                 </div>
                 <FiChevronRight className="arrow" />
-
-
             </div>
-
         </div>
     );
 };

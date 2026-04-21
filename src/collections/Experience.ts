@@ -1,25 +1,41 @@
 import type { CollectionConfig } from "payload";
-export const Experience : CollectionConfig = 
-{ slug: 'Experience', 
-    access: { 
-        read: () => true, 
-    }, 
-    
+export const Experience: CollectionConfig =
+{
+    slug: 'Experience',
+    access: {
+        read: () => true,
+    },
+
     fields: [
-        {  name: 'title', 
+        {
+            name: 'title',
             type: 'text',
         },
 
-         { name: 'subtitle', 
+        {
+            name: 'subtitle',
             type: 'textarea',
-         }, 
-         { name: 'description', 
-            type: 'textarea', 
+        },
+        {
+            name: 'description',
+            type: 'textarea',
         },
 
-        { name: 'photo', 
-            type: 'upload', 
-            relationTo: 'media', 
+        {
+            name: 'link',
+            type: 'text',
         },
-     ]
-    }
+
+        {
+            name: 'video',
+            type: 'upload',
+            relationTo: 'media',
+        },
+
+        {
+            name: 'photo',
+            type: 'upload',
+            relationTo: 'media',
+        },
+    ]
+}

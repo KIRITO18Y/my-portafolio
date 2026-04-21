@@ -1,5 +1,6 @@
 'use client'
 import './profile.css'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FaTelegramPlane } from 'react-icons/fa'
@@ -14,23 +15,26 @@ export const Profile = () => {
             .then(data => setProfile(data))
     }, [])
 
-
     return (
         <div className='profile-container'>
-            <div>
-                <div className="profile-line">
-                    <h1 className='profile-nombre '>{profile.title}</h1>
-                    <span className='profile-raya'>|</span>
-                    <div className="profile-fullname ">
-                        <span className="profile-name-up">{profile.firstName}</span>
-                        <span className="profile-name-down">{profile.lastName}</span>
+            <div className='profile-content'>
+                <div className='infor'>
+                    <div className="profile-line">
+                        <h1 className='profile-nombre '>{profile.title}</h1>
+                        <span className='profile-raya'>|</span>
+                        <div className="profile-fullname ">
+                            <span className="profile-name-up">{profile.firstName}</span>
+                            <span className="profile-name-down">{profile.lastName}</span>
+                        </div>
+                    </div>
+
+                    <div className=''>
+                        <h2 className="profile-titulo ">{profile.subtitle}</h2>
+                        <p className="profile-descripcion ">
+                            {profile.description}
+                        </p>
                     </div>
                 </div>
-
-                <h2 className="profile-titulo ">{profile.subtitle}</h2>
-                <p className="profile-descripcion ">
-                    {profile.description}
-                </p>
                 <div className="profile-list">
                     {profile.tags?.flatMap((item: any) =>
                         item.tag
@@ -52,11 +56,15 @@ export const Profile = () => {
                 </div>
             </div>
             <div className="profile-foto-box ">
-                <img
-                    src={profile.photo?.url}
-                    alt={profile.titulo}
-                    className="profile-foto"
-                />
+                {profile.photo?.url && (
+                    <Image
+                        src={profile.photo.url}
+                        alt={profile.titulo}
+                        className="profile-foto"
+                        width={340}
+                        height={480}
+                    />
+                )}
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 'use client';
-
-import { faLink } from '@fortawesome/free-solid-svg-icons';
 import './Experience.css'
+import Image from 'next/image';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react';
 
@@ -21,13 +21,15 @@ export const Experience = () => {
     return (
         <div className="experience-container">
             <h3 className="experience-title">Aliados y Experiencia</h3>
-
             <div className='experience-header'>
                 {experiences.map((experience) => (
                     <div key={experience.id} className="experience-card">
                         <div className="experience-img">
-                            <img src={experience.photo?.url}
-                                alt={experience.photo?.alt || 'imagen de la experiencia'} />
+                            <Image src={experience.photo?.url}
+                                alt={experience.photo?.alt || 'imagen de la experiencia'}
+                                width={300}
+                                height={300}
+                            />
                         </div>
 
                         <div className='experience-logos'>
@@ -42,14 +44,14 @@ export const Experience = () => {
                             {experience.description}
                         </p>
 
-                        <div className='experience-link'>
+                        <div className='experience-infovid'>
                             <div className='link-net'>
                                 <FontAwesomeIcon icon={faLink} className='falink' />
-                                <a href="">SIEMPRE.NET</a>
+                                <a href={experience.link}>SIEMPRE.NET</a>
                             </div>
-                        </div>
-                        <div className='experience-vd'>
-                            <video src="aaaaa">video</video>
+                            <div className='experience-vd'>
+                                <video src="aaaaa" className='experience-video'>video</video>
+                            </div>
                         </div>
                     </div>
                 ))}

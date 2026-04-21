@@ -21,8 +21,6 @@ const BlogPage = () => {
 
         return `${day} ${month.charAt(0).toUpperCase() + month.slice(1)}`
     }
-
-
     return (
         <div className="blog-container">
             <div className="blog-header">
@@ -45,13 +43,12 @@ const BlogPage = () => {
                         <div className="blog-card-content">
                             <div className="card-contentainer">
                                 <h2 className="blog-title">{blog.title}</h2>
-
                                 <p className="blog-description">
                                     {blog.description}
                                 </p>
                                 <div className="blog-meta">
                                     <span className="blog-date">{formatDate(blog.publishedAt)}</span>
-                                    <span>Views 256</span>
+                                    <span className='blog-views'>Views 256</span>
                                     <span className='blog-comments'>
                                         <FaComment className='blog-facoment' />
                                         256

@@ -1,5 +1,6 @@
 'use client'
 import './app.css'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
@@ -23,8 +24,11 @@ const Apps = () => {
                 {apps.map((app) => (
                     <div key={app.id} className='card-apps'>
                         <div className='card-img'>
-                            <img src={app.photo?.url}
+                            <Image
+                                src={app.photo?.url}
                                 alt={app.photo?.alt || 'imagen de la aplicacion'}
+                                width={300}
+                                height={300}
                             />
                         </div>
                         <div className='logo-apps'>

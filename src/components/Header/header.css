@@ -46,6 +46,12 @@
     color: white;
 }
 
+.icon-notific{
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+}
 
 .theme-btn {
     width: 36px;

@@ -1,7 +1,7 @@
 .profile-container {
     display: flex;
     padding: 20px;
-    justify-content: space-between;
+    gap: 50px;
     align-items: center;
     color: white;
 }
@@ -54,17 +54,16 @@
 
 .profile-descripcion {
     font-size: 18px;
-    max-width: 500px;
+    max-width: 700px;
     opacity: 0.9;
     transform: translateY(-50px);
 }
-
 
 .profile-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    max-width: 600px;
+    max-width: 700px;
     transform: translateY(-50px);
 }
 
@@ -88,7 +87,7 @@
 }
 
 .btn-contactar {
-    padding: 8px 40px;
+    padding: 0px 50px;
     font-size: 17px;
     border-radius: 10px;
     background: transparent;
@@ -97,11 +96,11 @@
     border: 1px solid rgba(255, 255, 255, 0.484);
     cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgb(128, 0, 255);
 }
 
-
 .btn-contactar:hover {
-    background: rgba(209, 217, 221);
+    background: rgb(209, 217, 221);
     color: blue;
 
 }
@@ -114,7 +113,6 @@
     align-items: center;
 }
 
-
 .fatelegram-icon {
     color: white;
     display: flex;
@@ -122,10 +120,8 @@
 }
 
 .profile-foto-box {
-    display: flex;
     width: 340px;
-    height: 360px;
-
+    height: 380px;
 }
 
 .profile-foto {
@@ -133,5 +129,5 @@
     height: 100%;
     object-fit: cover;
     border-radius: 25px;
-    box-shadow: 0 0 25px rgb(255, 225, 0);
+    box-shadow: 0 0 15px rgb(128, 0, 255);
 }

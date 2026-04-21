@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
 import '../contacts/contacts.css'
 import { useEffect, useState } from 'react'
@@ -103,7 +103,7 @@ const ContactsPage = () => {
                 </div>
 
                 <div className="contacts-foto-box">
-                    <img
+                    <Image
                         src={contacts.photo?.url}
                         alt="Foto"
                         className="contacts-foto"

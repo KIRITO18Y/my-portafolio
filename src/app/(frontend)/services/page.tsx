@@ -1,8 +1,10 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import '../services/services.css'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
+
 
 const ServicesPage = () => {
     const router = useRouter();
@@ -18,12 +20,12 @@ const ServicesPage = () => {
 
     return (
         <div className="services-container">
-            <h1 className="services-titulo"> servicios </h1>
+            <h1 className="services-titulo"> Servicios </h1>
             <div className='services-header'>
                 {services.map((service) => (
                     <div key={service.id} className='service-card'>
                         <div >
-                            <img src={service.photo?.url} alt={service.title} className='service-img' />
+                            <Image src={service.photo?.url} alt={service.title} className='service-img' width={300} height={300} />
                         </div>
                         <h2 className='service-title'>{service.title} </h2>
                     </div>
@@ -32,7 +34,9 @@ const ServicesPage = () => {
             <div className='btn-contacto-container'>
                 <button className='btn-contacto' onClick={() => router.push('/contacts')}>Contactar ahora </button>
             </div>
-            < CreditsSlider />
+            <div>
+                < CreditsSlider />
+            </div>
         </div>
     )
 }

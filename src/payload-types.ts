@@ -203,6 +203,8 @@ export interface Experience {
   title?: string | null;
   subtitle?: string | null;
   description?: string | null;
+  link?: string | null;
+  video?: (number | null) | Media;
   photo?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -428,6 +430,8 @@ export interface ExperienceSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
   description?: T;
+  link?: T;
+  video?: T;
   photo?: T;
   updatedAt?: T;
   createdAt?: T;

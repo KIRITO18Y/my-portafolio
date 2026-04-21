@@ -4,7 +4,7 @@ import { Header } from '@/components/Header/Header'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>
         <div className='container-principal'>
           <Sidebar />

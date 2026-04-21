@@ -1,6 +1,6 @@
 'use client';
 import './header.css'
-import { FaGlobeAmericas, FaHandsHelping, FaSun, FaMoon } from "react-icons/fa";
+import { FaGlobeAmericas, FaHandsHelping, FaSun, FaMoon, } from "react-icons/fa";
 import { useState } from "react";
 
 export const Header = () => {
@@ -13,6 +13,7 @@ export const Header = () => {
                 <div>
                     <FaGlobeAmericas className='icon-figlobe' />
                 </div>
+
                 <div className='header-icon'>
                     <div className={`theme-btn ${theme === "light" ? "active-sun" : ""}`}
                         onClick={() => setTheme("light")}>

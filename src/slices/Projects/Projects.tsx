@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Projects.css'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -27,8 +27,11 @@ export const Projects = () => {
                 {projects.map((project) => (
                     <div key={project.id} className="projects-card">
                         <div className="card-img">
-                            <img src={project.photo?.url}
-                                alt={project.photo?.alt || 'imagen del proyecto'} />
+                            <Image src={project.photo?.url}
+                                alt={project.photo?.alt || 'imagen del proyecto'}
+                                width={300}
+                                height={300}
+                            />
                         </div>
                         <div className='projects-logos'>
                             <div>

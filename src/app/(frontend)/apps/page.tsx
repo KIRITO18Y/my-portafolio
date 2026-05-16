@@ -27,7 +27,7 @@ const Apps = () => {
                             <Image
                                 src={app.photo?.url}
                                 alt={app.photo?.alt || 'imagen de la aplicacion'}
-                                width={300}
+                                width={399}
                                 height={300}
                             />
                         </div>

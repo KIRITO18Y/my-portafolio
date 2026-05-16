@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react';
 
 export const Experience = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [experiences, setExperiences] = useState<any[]>([])
 
     useEffect(() => {
@@ -20,7 +21,9 @@ export const Experience = () => {
     console.log(experiences);
     return (
         <div className="experience-container">
-            <h3 className="experience-title">Aliados y Experiencia</h3>
+            {experiences.length > 0 && (
+                <h3 className="experience-title">Aliados y Experiencia</h3>
+            )}
             <div className='experience-header'>
                 {experiences.map((experience) => (
                     <div key={experience.id} className="experience-card">

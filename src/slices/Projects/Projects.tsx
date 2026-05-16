@@ -22,7 +22,9 @@ export const Projects = () => {
 
     return (
         <div className="projects-container">
-            <h3 className='projects-titulo'>Proyectos</h3>
+            {projects.length > 0 && (
+                <h3 className='projects-titulo'>Proyectos</h3>
+            )}
             <div className='projects-header'>
                 {projects.map((project) => (
                     <div key={project.id} className="projects-card">

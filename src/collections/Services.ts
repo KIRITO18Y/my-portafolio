@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload';
-import { title } from 'process';
 export const Services: CollectionConfig = {
     slug: 'services',
     access: {

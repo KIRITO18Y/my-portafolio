@@ -3,9 +3,12 @@ import '../blog/blog.css'
 import { CreditsSlider, } from '@/components/CreditsSlider/CreditsSlider'
 import { FaComment, FaHandsHelping, FaBookmark, FaTree } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const BlogPage = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [blogs, setBlogs] = useState<any[]>([]);
+    const router = useRouter()
 
     useEffect(() => {
         fetch('/api/blog/?depth=2')
@@ -14,12 +17,16 @@ const BlogPage = () => {
                 setBlogs(data.docs ?? []);
             })
     }, []);
+
     const formatDate = (date: string) => {
         const d = new Date(date)
-        const month = d.toLocaleDateString('es-CO', { month: 'long' })
-        const day = d.getDate()
+        const formatted = d.toLocaleDateString('es-ES', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        })
 
-        return `${day} ${month.charAt(0).toUpperCase() + month.slice(1)}`
+        return formatted.charAt(0).toUpperCase() + formatted.slice(1)
     }
     return (
         <div className="blog-container">
@@ -39,12 +46,16 @@ const BlogPage = () => {
 
             <div className="blog-card">
                 {blogs.map((blog) => (
-                    <div key={blog.id} className="card-header">
+                    <div
+                        key={blog.id} className="card-header" onClick={() => {
+                            if (!blog?.id) return; // evita error
+                            router.push(`/blog/${blog.id}`)
+                        }}>
                         <div className="blog-card-content">
                             <div className="card-contentainer">
                                 <h2 className="blog-title">{blog.title}</h2>
                                 <p className="blog-description">
-                                    {blog.description}
+                                    {blog.description.slice(0, 200)}...
                                 </p>
                                 <div className="blog-meta">
                                     <span className="blog-date">{formatDate(blog.publishedAt)}</span>

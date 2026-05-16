@@ -1,14 +1,13 @@
 import './styles.css'
-import { Sidebar } from '@/components/Sidebar/Sidebar'
-import { Header } from '@/components/Header/Header'
+import { Sidebar } from '@/layout/Sidebar/Sidebar'
+import { Header } from '@/layout/Header/Header'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <div className='container-principal'>
           <Sidebar />
-
           <div className="layout-content">
             <Header />
             <main className="layout-main">

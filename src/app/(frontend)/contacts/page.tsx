@@ -2,14 +2,11 @@
 import Image from 'next/image'
 import { CreditsSlider } from '@/components/CreditsSlider/CreditsSlider'
 import '../contacts/contacts.css'
-import { useEffect, useState } from 'react'
-
+import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 const ContactsPage = () => {
-    const [contacts, setContacts] = useState<any>({});
-
-
-    const [formData, setFormData] = useState({
+    const [form, setForm] = useState({
         name: '',
         email: '',
         phone: '',
@@ -17,97 +14,126 @@ const ContactsPage = () => {
         message: '',
     })
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+    const [errors, setErrors] = useState<string[]>([])
+
+    const handleChange = (e: any) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value,
+        })
+
+        if (errors.includes(e.target.name)) {
+            setErrors(errors.filter(error => error !== e.target.name))
+        }
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: any) => {
+        e.preventDefault()
+
+        const camposAValidar = ['name', 'email', 'phone', 'city']
+        const nuevosErrores = camposAValidar.filter(campo => !form[campo as keyof typeof form])
+
+        if (nuevosErrores.length > 0) {
+            setErrors(nuevosErrores)
+            Swal.fire({
+                title: "Campos incompletos",
+                text: "Por favor, llena los campos resaltados",
+                icon: "warning",
+                timer: 3000,
+                timerProgressBar: true,
+                confirmButtonColor: '#a730d6'
+            })
+            return
+        }
 
         try {
-            const res = await fetch('/api/contacts/?depth=2', {
+            const res = await fetch('/api/contacts', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
             })
 
             if (!res.ok) throw new Error()
 
-            alert('Mensaje enviado correctamente ✅')
-
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                city: '',
-                message: '',
+            Swal.fire({
+                title: "¡Enviado!",
+                text: "Tu mensaje ha sido enviado correctamente",
+                icon: "success",
+                timer: 3500,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                draggable: true
             })
-        } catch {
-            alert('Error al enviar el mensaje ❌')
+
+            setForm({ name: '', email: '', phone: '', city: '', message: '' })
+            setErrors([])
+
+        } catch (error) {
+            Swal.fire({
+                title: "Error",
+                text: "No se pudo enviar el mensaje",
+                icon: "error",
+                timer: 3000,
+                timerProgressBar: true
+            })
         }
     }
 
+    const inputStyle = (name: string) => ({
+        border: errors.includes(name) ? '2px solid #ff4d4d' : '1px solid #ddd',
+        outline: 'none'
+    })
 
     return (
         <div className="contacts-container">
             <div className="contacts-content">
                 <div className="contacts-header">
                     <h1 className="contacts-title">Contacto</h1>
-                    <div className="contacts-inputs">
+
+                    <form className='contacts-inputs' onSubmit={handleSubmit}>
                         <input
                             name="name"
-                            value={formData.name}
-                            onChange={handleChange}
                             placeholder="Nombre Completo"
+                            value={form.name}
+                            onChange={handleChange}
+                            style={inputStyle('name')}
                         />
-
                         <input
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
                             placeholder="Email"
+                            value={form.email}
+                            onChange={handleChange}
+                            style={inputStyle('email')}
                         />
-
                         <input
                             name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
                             placeholder="Teléfono"
+                            value={form.phone}
+                            onChange={handleChange}
+                            style={inputStyle('phone')}
                         />
-
                         <input
                             name="city"
-                            value={formData.city}
-                            onChange={handleChange}
                             placeholder="Ciudad"
+                            value={form.city}
+                            onChange={handleChange}
+                            style={inputStyle('city')}
                         />
-
-
                         <textarea
                             name="message"
-                            value={formData.message}
-                            onChange={handleChange}
                             placeholder="Mensaje"
+                            value={form.message}
+                            onChange={handleChange}
                         />
-
                         <div className="contacts-btn">
-                            <button onClick={handleSubmit} className='contacts-button' >
+                            <button type="submit" className='contacts-button'>
                                 Enviar Mensaje
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
-
                 <div className="contacts-foto-box">
-                    <Image
-                        src={contacts.photo?.url}
-                        alt="Foto"
-                        className="contacts-foto"
-                    />
+                    <Image src="/contact.jpg" alt="Foto" width={300} height={300} />
                 </div>
             </div>
             <CreditsSlider />

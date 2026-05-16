@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import './RedesSociales.css';
+import './RedesSocials.css';
 
-export const RedesSociales = () => {
+export const RedesSocials = () => {
     return (
         <div>
             <div className="social">

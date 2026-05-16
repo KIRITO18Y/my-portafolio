@@ -3,6 +3,10 @@ import nodemailer from 'nodemailer'
 
 export const Contacts: CollectionConfig = {
     slug: 'contacts',
+    access: {
+        create: () => true,
+    },
+
 
     fields: [
         {
@@ -35,19 +39,20 @@ export const Contacts: CollectionConfig = {
             async ({ doc, operation }) => {
                 if (operation !== 'create') return
 
-                const transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: process.env.GMAIL_USER,
-                        pass: process.env.GMAIL_PASS,
-                    },
-                })
+                try {
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                            user: process.env.GMAIL_USER,
+                            pass: process.env.GMAIL_PASS,
+                        },
+                    })
 
-                await transporter.sendMail({
-                    from: `"Formulario Web" <${process.env.GMAIL_USER}>`,
-                    to: process.env.GMAIL_USER,
-                    subject: '📩 Nuevo mensaje de contacto',
-                    html: `
+                    await transporter.sendMail({
+                        from: `"Formulario Web" <${process.env.GMAIL_USER}>`,
+                        to: process.env.GMAIL_USER,
+                        subject: '📩 Nuevo mensaje de contacto',
+                        html: `
             <h3>Nuevo mensaje</h3>
             <p><b>Nombre:</b> ${doc.name}</p>
             <p><b>Email:</b> ${doc.email}</p>
@@ -56,9 +61,11 @@ export const Contacts: CollectionConfig = {
             <p><b>Mensaje:</b></p>
             <p>${doc.message}</p>
           `,
-                })
+                    })
+                } catch (error) {
+                    console.error('Error enviando correo:', error)
+                }
             },
         ],
-    },
+    }
 }
-

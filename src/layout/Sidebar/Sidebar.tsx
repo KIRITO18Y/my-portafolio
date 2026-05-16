@@ -1,20 +1,17 @@
 'use client'
 import Link from 'next/link'
 import '../Sidebar/Sidebar.css'
-import { RedesSociales } from '@/slices/RedesSociales/RedesSociales'
+import { RedesSocials } from '../../slices/RedesSocials/RedesSocials'
 import { usePathname } from 'next/navigation'
-
 export const Sidebar = () => {
     const pathname = usePathname()
-
 
     return (
         <aside className="sidebar">
             <div className='logo'>
-                <h2 className='titulo'>DEANDRE</h2>
-                <p className='subtitilo'>Developer Web FullStack</p>
+                <h2 className='title'>DEANDRE</h2>
+                <p className='subtitle'>Developer Web FullStack</p>
             </div>
-
             <div>
                 <nav className="menu">
                     <Link
@@ -54,7 +51,7 @@ export const Sidebar = () => {
                 </nav>
             </div>
             <div>
-                <RedesSociales />
+                <RedesSocials />
             </div>
         </aside >
     )
